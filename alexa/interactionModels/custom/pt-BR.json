@@ -1,0 +1,641 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "category",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.126153955843.1223477767840.1565610631320"
+                }
+              ],
+              "type": "MainMenuCategory",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.126153955843.1223477767840"
+              }
+            }
+          ],
+          "name": "MenuOptionsIntent",
+          "delegationStrategy": "SKILL_RESPONSE",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "nursing",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.420610479404.1352456316947.1289244402001"
+                }
+              ],
+              "type": "NursingMenuOptions",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1611126811452.1609730251913"
+              }
+            }
+          ],
+          "name": "NursingOptionsIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "nutrition",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.564342703608.1391979315728.649724088746"
+                }
+              ],
+              "type": "NutritionMenuOptions",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1561222920839.1398222194649"
+              }
+            }
+          ],
+          "name": "NutritionOptionsIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "hospitality",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1308657679134.573656880501.1168430823763"
+                }
+              ],
+              "type": "HospitalityMenuOptions",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.982986332945.750528494414"
+              }
+            }
+          ],
+          "name": "HospitalityOptionsIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "serviceNumber",
+              "elicitationRequired": true,
+              "type": "AMAZON.AlphaNumeric",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1370898173132.958421738976"
+              }
+            }
+          ],
+          "name": "ServiceNumberReaderIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "category",
+              "type": "MainMenuCategory",
+              "samples": [
+                "escolho {category}",
+                "eu escolho {category}",
+                "eu quero {category}",
+                "{category}"
+              ]
+            }
+          ],
+          "name": "MenuOptionsIntent",
+          "samples": [
+            "{category}",
+            "urgente {category}",
+            "chamar {category} ",
+            "preciso de {category}",
+            "eu quero {category}"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "nursing",
+              "type": "NursingMenuOptions",
+              "samples": [
+                "{nursing}",
+                "preciso {nursing}",
+                "escolho {nursing}",
+                "eu quero {nursing}",
+                "eu escolho {nursing}"
+              ]
+            }
+          ],
+          "name": "NursingOptionsIntent",
+          "samples": [
+            "{nursing}",
+            "eu preciso de {nursing}",
+            "eu escolho {nursing}"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "nutrition",
+              "type": "NutritionMenuOptions",
+              "samples": [
+                "{nutrition}",
+                "preciso {nutrition}",
+                "eu escolho {nutrition}",
+                "escolho {nutrition}",
+                "eu quero {nutrition}"
+              ]
+            }
+          ],
+          "name": "NutritionOptionsIntent",
+          "samples": [
+            "{nutrition}",
+            "eu quero {nutrition}",
+            "escolho {nutrition}",
+            "eu escolho {nutrition}"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "hospitality",
+              "type": "HospitalityMenuOptions",
+              "samples": [
+                "{hospitality}",
+                "eu escolho {hospitality}",
+                "escolho {hospitality}",
+                "preciso {hospitality}",
+                "eu quero {hospitality}"
+              ]
+            }
+          ],
+          "name": "HospitalityOptionsIntent",
+          "samples": [
+            "{hospitality}",
+            "eu escolho {hospitality}",
+            "escolho {hospitality}",
+            "eu quero {hospitality}"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "serviceNumber",
+              "type": "AMAZON.AlphaNumeric",
+              "samples": [
+                "{serviceNumber}",
+                "meu atendimento é {serviceNumber}",
+                "o número do meu atendimento é {serviceNumber}"
+              ]
+            }
+          ],
+          "name": "ServiceNumberReaderIntent",
+          "samples": [
+            "{serviceNumber}",
+            "meu documento é {serviceNumber}",
+            "meu CPF é {serviceNumber}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Hotelaria"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "refeição",
+                  "alimentação",
+                  "nutricao"
+                ],
+                "value": "Nutrição"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "enfermagem",
+                  "enfermaria"
+                ],
+                "value": "Enfermagem"
+              }
+            }
+          ],
+          "name": "MainMenuCategory"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "repetir",
+                  "de novo"
+                ],
+                "value": "repetir"
+              },
+              "id": "99"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "outros",
+                  "outro"
+                ],
+                "value": "outros"
+              },
+              "id": "98"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "fralda",
+                  "trocar fralda",
+                  "trocar a fralda"
+                ],
+                "value": "Trocar a fralda"
+              },
+              "id": "11"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "banheiro",
+                  "ir ao banheiro"
+                ],
+                "value": "Ir ao banheiro"
+              },
+              "id": "10"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "banho",
+                  "tomar banho"
+                ],
+                "value": "Tomar banho"
+              },
+              "id": "9"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "dor",
+                  "estou com dor"
+                ],
+                "value": "Estou com dor"
+              },
+              "id": "8"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "soro",
+                  "trocar o soro"
+                ],
+                "value": "Trocar o soro"
+              },
+              "id": "7"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "medicamento",
+                  "remédio",
+                  "remédio atrasado",
+                  "medicação atrasada",
+                  "medicamento atrasado"
+                ],
+                "value": "Medicamento atrasado"
+              },
+              "id": "6"
+            }
+          ],
+          "name": "NursingMenuOptions"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "de novo",
+                  "repetir"
+                ],
+                "value": "repetir"
+              },
+              "id": "99"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "outros",
+                  "outro"
+                ],
+                "value": "outros"
+              },
+              "id": "98"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "nutricionista",
+                  "falar com a nutricionista"
+                ],
+                "value": "Falar com a nutricionista"
+              },
+              "id": "5"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "louça",
+                  "retirar a louça"
+                ],
+                "value": "Retirar a louça"
+              },
+              "id": "4"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "água",
+                  "trazer água"
+                ],
+                "value": "Trazer água"
+              },
+              "id": "3"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "pedir jantar",
+                  "quero jantar",
+                  "jantar",
+                  "pedido de jantar"
+                ],
+                "value": "Pedido de jantar"
+              },
+              "id": "2"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "pedir almoço",
+                  "quero almoçar",
+                  "almoço",
+                  "pedido de almoço"
+                ],
+                "value": "Pedido de almoço"
+              },
+              "id": "1"
+            }
+          ],
+          "name": "NutritionMenuOptions"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "de novo",
+                  "repetir"
+                ],
+                "value": "repetir"
+              },
+              "id": "99"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "outro",
+                  "outros"
+                ],
+                "value": "outros"
+              },
+              "id": "98"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "ar",
+                  "ar condicionado",
+                  "problema no ar condicionado"
+                ],
+                "value": "Problema no ar condicionado"
+              },
+              "id": "17"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "problema na televisão",
+                  "televisão"
+                ],
+                "value": "Problema na televisão"
+              },
+              "id": "16"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "cobertor",
+                  "mais cobertor"
+                ],
+                "value": "Mais cobertor"
+              },
+              "id": "15"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "lençol",
+                  "trocar lençol"
+                ],
+                "value": "Trocar lençol"
+              },
+              "id": "14"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "lixo",
+                  "retirar lixo"
+                ],
+                "value": "Retirar lixo"
+              },
+              "id": "13"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "limpar banheiro",
+                  "limpar quarto",
+                  "limpeza do quarto ou banheiro"
+                ],
+                "value": "Limpeza do quarto ou banheiro"
+              },
+              "id": "12"
+            }
+          ],
+          "name": "HospitalityMenuOptions"
+        }
+      ],
+      "invocationName": "liu menu"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Por favor, escolha entre enfermagem, nutrição ou hotelaria"
+          }
+        ],
+        "id": "Elicit.Slot.126153955843.1223477767840"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Escolha entre Enfermagem, Nutrição ou Hotelaria"
+          },
+          {
+            "type": "PlainText",
+            "value": "Opção inválida, escolha  entre Enfermagem, Nutrição ou Hotelaria"
+          }
+        ],
+        "id": "Slot.Validation.126153955843.1223477767840.1565610631320"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Opção inválida, tente uma das seguintes opções, medicamento atrasado, trocar o soro, estou com dor, tomar banho,  ir ao banheiro, trocar a fralda, outros ou repetir"
+          }
+        ],
+        "id": "Slot.Validation.420610479404.1352456316947.1289244402001"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Opção inválida, tente uma das seguintes opções, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros"
+          }
+        ],
+        "id": "Slot.Validation.420610479404.835254796714.56929362919"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Opção inválida, tente uma das seguintes opções, pedido de almoço, pedido de jantar, trazer água, retirar a louça, falar com a nutricionista, outros"
+          }
+        ],
+        "id": "Slot.Validation.420610479404.569796639780.1014721353195"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Opção inválida, tente uma das seguintes opções, pedido de almoço, pedido de jantar, trazer água, retirar a louça, falar com a nutricionista, outros ou repetir"
+          }
+        ],
+        "id": "Slot.Validation.564342703608.1391979315728.649724088746"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Opção inválida, tente uma das seguintes opções, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir"
+          }
+        ],
+        "id": "Slot.Validation.1308657679134.573656880501.1168430823763"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Por favor, escolha uma das opções, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir."
+          }
+        ],
+        "id": "Elicit.Slot.982986332945.750528494414"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Por favor, escolha uma das opções, medicamento atrasado, trocar o soro, estou com dor, tomar banho,  ir ao banheiro, trocar a fralda, outros ou repetir."
+          }
+        ],
+        "id": "Elicit.Slot.1611126811452.1609730251913"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Por favor, escolha uma das opções, pedido de almoço, pedido de jantar, trazer água, retirar a louça, falar com a nutricionista, outros ou repetir."
+          }
+        ],
+        "id": "Elicit.Slot.1561222920839.1398222194649"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "O CPF {cpf} está correto?"
+          }
+        ],
+        "id": "Confirm.Intent.718728612498"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Informe o número do seu atendimento"
+          }
+        ],
+        "id": "Elicit.Slot.1370898173132.958421738976"
+      }
+    ]
+  }
+}
