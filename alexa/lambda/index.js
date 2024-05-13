@@ -3,7 +3,7 @@ const { get } = require("lodash");
 const axios = require("axios");
 
 const api = axios.create({
-  baseURL: "https://88de-2001-1284-f034-bf89-ed33-7675-e048-3f57.ngrok-free.app",
+  baseURL: " https://b0b2-164-163-96-103.ngrok-free.app",
 });
 
 const LaunchRequestHandler = {
@@ -47,7 +47,7 @@ const ServiceNumberReaderIntentHandler = {
 
     if (get(data, 'cpf')) {
       const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-      sessionAttributes.patience = data;
+      sessionAttributes.patient = data;
       return handlerInput.responseBuilder
         .speak(`Olá ${data.nomePaciente}.`)
         .addDelegateDirective({
@@ -114,7 +114,7 @@ const NursingOptionsIntentHandler = {
 
     const { requestEnvelope } = handlerInput;
     const option = Alexa.getSlot(requestEnvelope, "nursing");
-    const patience = sessionAttributes.patience;
+    const patient = sessionAttributes.patient;
     const id = obtainId(option)
     const serviceName = obtainServiceName(option)
     
@@ -128,11 +128,11 @@ const NursingOptionsIntentHandler = {
 
     let speechText = `Você escolheu ${serviceName}. Seu pedido foi enviado e o atenderemos o mais rápido possível. Obrigado.`;
 
-    const { data } = await api.post('/', {
+    const { data } = await api.post('/appointments', {
       serviceId: id,
       serviceName,
       fullOption: option,
-      patience,
+      patient,
       from: "alexa",
       where: "nursing",
     });
@@ -160,7 +160,7 @@ const HospitalityOptionsIntentHandler = {
     const { requestEnvelope } = handlerInput;
     const option = Alexa.getSlot(requestEnvelope, "hospitality");
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-    const patience = sessionAttributes.patience;
+    const patient = sessionAttributes.patient;
     const id = obtainId(option)
     const serviceName = obtainServiceName(option)
     
@@ -174,11 +174,11 @@ const HospitalityOptionsIntentHandler = {
     
     let speechText = `Você escolheu ${serviceName}. Seu pedido foi enviado e o atenderemos o mais rápido possível. Obrigado.`;
 
-    const { data } = await api.post('/', {
+    const { data } = await api.post('/appointments', {
       serviceId: id,
       serviceName,
       fullOption: option,
-      patience,
+      patient,
       from: "alexa",
       where: "hospitality",
     });
@@ -206,7 +206,7 @@ const NutritionOptionsIntentHandler = {
     const { requestEnvelope } = handlerInput;
     const option = Alexa.getSlot(requestEnvelope, "nutrition");
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-    const patience = sessionAttributes.patience;
+    const patient = sessionAttributes.patient;
     const id = obtainId(option)
     const serviceName = obtainServiceName(option)
     
@@ -220,11 +220,11 @@ const NutritionOptionsIntentHandler = {
     
     let speechText = `Você escolheu ${serviceName}. Seu pedido foi enviado e o atenderemos o mais rápido possível. Obrigado.`;
 
-    const { data } = await api.post('/', {
+    const { data } = await api.post('/appointments', {
       serviceId: id,
       serviceName,
       fullOption: option,
-      patience,
+      patient,
       from: "alexa",
       where: "nutrition",
     });
