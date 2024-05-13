@@ -14,6 +14,7 @@ export class AppointmentService {
   async getAll() {
     return this.prisma.appointment.findMany({
       include: { patient: true },
+      where: { closedAt: null, deletedAt: null },
     });
   }
 
@@ -21,6 +22,7 @@ export class AppointmentService {
     const patient = await this.patient.findOrCreate(get(data, 'patient'));
 
     const appointmentToCreate = {
+      category: get(data, 'where'),
       alexaServiceId: get(data, 'serviceId'),
       alexaServiceName: get(data, 'serviceName'),
       patientId: patient.id,
@@ -35,6 +37,13 @@ export class AppointmentService {
 
     return this.prisma.appointment.create({
       data: appointmentToCreate,
+    });
+  }
+
+  async close(appointmentId: string) {
+    return this.prisma.appointment.update({
+      where: { id: appointmentId },
+      data: { closedAt: new Date() },
     });
   }
 }

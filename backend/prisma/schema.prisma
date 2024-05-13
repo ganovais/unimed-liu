@@ -19,18 +19,19 @@ model User {
 }
 
 model Appointment {
-  id String @id @default(uuid())
-
+  id               String @id @default(uuid())
+  category         String
   alexaServiceId   Int    @map("alexa_service_id")
   alexaServiceName String @map("alexa_service_name")
 
-  unitCode   String @map("unit_code")
+  unitCode   String    @map("unit_code")
   type       String
   number     Int
-  codeSector String @map("code_sector")
+  codeSector String    @map("code_sector")
   sector     String
-  typeSector String @map("type_sector")
-  patientId  String @map("patient_id")
+  typeSector String    @map("type_sector")
+  patientId  String    @map("patient_id")
+  closedAt   DateTime? @map("closed_at")
 
   patient Patient @relation(fields: [patientId], references: [id])
 
