@@ -13,6 +13,15 @@ const LaunchRequestHandler = {
     );
   },
   handle(handlerInput) {
+    const currentTime = new Date();
+    const saoPauloTime = currentTime.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo" });
+    const hour = parseInt(saoPauloTime.split(':')[0]);
+    
+    if (hour >= 7 && hour < 19) {
+        const speechText = 'O LIU volta às 7 horas, para solicitar nossos serviços nesse intervalo, aperte a campainha.'
+        return handlerInput.responseBuilder.speak(speechText).getResponse();
+    }
+    
     const speakOutput = "Olá, eu sou o LIU, seu assistente inteligente.";
 
     return handlerInput.responseBuilder
