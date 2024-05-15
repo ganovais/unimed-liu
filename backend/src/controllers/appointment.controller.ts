@@ -20,9 +20,9 @@ export class AppointmentController {
     return { success, message };
   }
 
-  @Get()
-  async get() {
-    return this.appointment.getAll();
+  @Get('/:sector')
+  async get(@Param('sector') sector: string) {
+    return this.appointment.getBySector(sector);
   }
 
   @Patch('/close/:appointmentId')

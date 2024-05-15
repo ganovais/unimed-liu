@@ -18,6 +18,13 @@ export class AppointmentService {
     });
   }
 
+  async getBySector(sector: string) {
+    return this.prisma.appointment.findMany({
+      include: { patient: true },
+      where: { closedAt: null, deletedAt: null, category: sector },
+    });
+  }
+
   async create(data: Appointment) {
     const patient = await this.patient.findOrCreate(get(data, 'patient'));
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import "../styles/global.css";
 import { Toaster } from "@/components/ui/sonner";
+
+import "../styles/global.css";
 
 export const metadata: Metadata = {
   title: "Unimed",
