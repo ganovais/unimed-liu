@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/card";
 
 import { api } from "@/lib/api";
+import { mockResponseAppointments } from "@/mock-response-appointments";
 
 
 export default function System() {
@@ -21,8 +22,10 @@ export default function System() {
   const { data, isFetching, refetch } = useQuery({
     queryKey: ["appointments", sector],
     queryFn: async () => {
-      const response = await api.get(`/appointments/${sector}`);
-      return response.data;
+      // const response = await api.get(`/appointments/${sector}`);
+      // return response.data;
+
+      return mockResponseAppointments
     },
   });
 
