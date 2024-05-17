@@ -3,7 +3,7 @@ const { get } = require("lodash");
 const axios = require("axios");
 
 const api = axios.create({
-  baseURL: " https://b0b2-164-163-96-103.ngrok-free.app",
+  baseURL: "https://45fe-2001-1284-f01c-4e57-31a5-7da2-9766-2105.ngrok-free.app",
 });
 
 const LaunchRequestHandler = {
@@ -16,11 +16,6 @@ const LaunchRequestHandler = {
     const currentTime = new Date();
     const saoPauloTime = currentTime.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo" });
     const hour = parseInt(saoPauloTime.split(':')[0]);
-    
-    if (hour >= 7 && hour < 19) {
-        const speechText = 'O LIU volta às 7 horas, para solicitar nossos serviços nesse intervalo, aperte a campainha.'
-        return handlerInput.responseBuilder.speak(speechText).getResponse();
-    }
     
     const speakOutput = "Olá, eu sou o LIU, seu assistente inteligente.";
 
