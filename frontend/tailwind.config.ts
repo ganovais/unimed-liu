@@ -19,6 +19,31 @@ const config = {
     },
     extend: {
       colors: {
+        primaryU: '#00A76D',
+        green: '#00A76D',
+        primaryDark: '#008A5A',
+        primaryLight: '#58C09F',
+        secondaryU: '#8E91A8',
+        info: '#2C8CED',
+        success: '#60C466',
+        warning: '#FFA13D',
+        error: '#FF6B6B',
+        light: '#F4F5F7',
+        dark: '#2C3E63',
+        white: '#FFFFFF',
+        strongGray: '#9A9A9A',
+      
+        //Cores do sistema de urgência
+        Pontos1: '#00A76D', 
+        Pontos2: '#FBBC04',
+        Pontos3: '#EA4335',
+        Default: '#A9A9A9',
+        Pontos1Dark: '#008A5A',
+        Pontos2Dark: '#E4A703',
+        Pontos3Dark: '#D63824',
+        DefaultDark: '#707070',
+
+        //Padrão
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -53,6 +78,27 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+
+      // Outras configurações personalizadas
+      boxShadow: {
+        custom: '0 4px 10px rgba(0, 153, 92, 0.6)',
+        customHover: '0 8px 15px rgba(0, 153, 92, 0.6)',
+        customCardTitle: '0 4px 10px rgba(0, 0, 0, 0.3)',
+      },
+      fontFamily: {
+        nunito: ['"Nunito"', 'sans-serif'],
+        bebas: ['"Bebas Neue"', 'cursive'],
+        josefin: ['"Josefin Sans"', 'sans-serif'],
+      },
+      spacing: {
+        '5': '5px',
+        '10': '10px',
+        '15': '15px',
+        '20': '20px',
+        '38': '38px',
+      },
+        
+      // Outras configurações padrão
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

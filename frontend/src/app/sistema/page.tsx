@@ -2,6 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { format, parseISO, formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 import {
   Card,
@@ -15,7 +17,6 @@ import {
 import { api } from "@/lib/api";
 import { mockResponseAppointments } from "@/mock-response-appointments";
 
-
 export default function System() {
   const sector = localStorage.getItem("sector");
 
@@ -25,7 +26,7 @@ export default function System() {
       // const response = await api.get(`/appointments/${sector}`);
       // return response.data;
 
-      return mockResponseAppointments
+      return mockResponseAppointments;
     },
   });
 
@@ -34,13 +35,13 @@ export default function System() {
   async function handleCloseAppointment(id: string) {
     const response = await api.patch(`/appointments/close/${id}`);
 
-    if(response.data.error) {
+    if (response.data.error) {
       toast.error(response.data.message);
-      return 
+      return;
     }
 
     toast.success(response.data.message);
-    refetch()
+    refetch();
   }
 
   return (
@@ -52,18 +53,27 @@ export default function System() {
             className="col-span-full sm:col-span-6 md:col-span-3"
           >
             <CardHeader>
-              <button onClick={() => handleCloseAppointment(appointment.id)}>close</button>
-              <CardTitle>{appointment.patient.name}</CardTitle>
-              <CardDescription>
-                Serviço solicitado: {appointment.alexaServiceName}
-              </CardDescription>
+              <CardTitle>Atendimento #</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>Card Content</p>
+              Nome: {appointment.patient.name}
+              <br />
+              Leito: {appointment.unitCode} <br />
+              Atendimento:{appointment.alexaServiceId} <br />
+              Solicitação: {appointment.alexaServiceName}
+              <br />
+              Horário:{" "}
+              {format(parseISO(appointment.createdAt), "dd/MM, HH:mm", {
+                locale: ptBR,
+              })}
+              (
+              {formatDistanceToNow(parseISO(appointment.createdAt), {
+                addSuffix: true,
+                locale: ptBR,
+              })}
+              )<br />
             </CardContent>
-            <CardFooter>
-              <p>Card Footer</p>
-            </CardFooter>
+            <CardFooter></CardFooter>
           </Card>
         ))
       ) : (
