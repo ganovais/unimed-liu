@@ -32,16 +32,6 @@ const config = {
         dark: '#2C3E63',
         white: '#FFFFFF',
         strongGray: '#9A9A9A',
-      
-        //Cores do sistema de urgência
-        Pontos1: '#00A76D', 
-        Pontos2: '#FBBC04',
-        Pontos3: '#EA4335',
-        Default: '#A9A9A9',
-        Pontos1Dark: '#008A5A',
-        Pontos2Dark: '#E4A703',
-        Pontos3Dark: '#D63824',
-        DefaultDark: '#707070',
 
         //Padrão
         border: "hsl(var(--border))",

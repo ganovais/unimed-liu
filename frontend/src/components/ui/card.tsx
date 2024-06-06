@@ -30,19 +30,7 @@ const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 CardHeader.displayName = "CardHeader";
 
 // Componente Card Title
-const CardTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
-  ({ className, ...props }, ref) => (
-    <h3
-      ref={ref}
-      className={cn(
-        "text-center text-white rounded-md shadow-md font-bold text-2xl p-2 bg-gradient-to-r from-primaryU to-primaryLight",
-        className
-      )}
-      {...props}
-    />
-  )
-);
-CardTitle.displayName = "CardTitle";
+// Verifique o arquivo frontend/src/components/ui/card-title.tsx
 
 // Componente Card Description
 const CardDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
@@ -80,7 +68,6 @@ export {
   Card,
   CardHeader,
   CardFooter,
-  CardTitle,
   CardDescription,
   CardContent,
 };

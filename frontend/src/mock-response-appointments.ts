@@ -12,7 +12,7 @@ export const mockResponseAppointments = [
     typeSector: "Setor",
     patientId: "e1eafc92-da7f-48d4-9eb7-910a5328e319",
     closedAt: null,
-    createdAt: "2024-05-15T18:48:20.673Z",
+    createdAt: "2024-06-06T22:26:20.673Z",
     updateAt: "2024-05-15T18:48:20.673Z",
     deletedAt: null,
     patient: {

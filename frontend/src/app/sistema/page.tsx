@@ -5,7 +5,8 @@ import { toast } from "sonner";
 import { format, parseISO, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card-title";
 import { Button } from "@/components/ui/button";
 import { api } from "@/lib/api";
 import { mockResponseAppointments } from "@/mock-response-appointments";
@@ -52,7 +53,7 @@ function AppointmentCard({ appointment }: { appointment: typeof mockResponseAppo
   return (
     <Card className="col-span-full sm:col-span-6 md:col-span-3">
       <CardHeader>
-        <CardTitle>Atendimento #{appointment.number}</CardTitle>
+        <CardTitle createdAt={appointment.createdAt}>Atendimento #{appointment.number}</CardTitle>
       </CardHeader>
       <CardContent>
         <p>
