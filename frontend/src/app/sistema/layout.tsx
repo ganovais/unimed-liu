@@ -3,7 +3,7 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 
 import { queryClient } from "@/lib/query";
-import Header from "@/components/sistema/header";
+import Header from "@/components/sistema/Header";
 
 export default function SystemLayout({
   children,

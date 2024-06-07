@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { formatDistanceToNow, parseISO } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import { parseISO } from 'date-fns';
 
 // Função para interpolar entre duas cores
 const interpolateColor = (color1: string, color2: string, factor: number): string => {
