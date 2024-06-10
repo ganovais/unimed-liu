@@ -2,13 +2,19 @@ import * as React from "react";
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import NavigationLinks from "./NavigationLinks";
+import { Button } from "../ui/button";
 
 interface MobileMenuProps {
   open: boolean;
   onClose: (open: boolean) => void;
+  makeLogout: () => void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ open, onClose }) => (
+const MobileMenu: React.FC<MobileMenuProps> = ({
+  open,
+  onClose,
+  makeLogout,
+}) => (
   <Dialog className="lg:hidden" open={open} onClose={onClose}>
     <div className="fixed inset-0 z-10 bg-black bg-opacity-50" />
     <Dialog.Panel className="fixed inset-y-0 right-0 z-20 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 shadow-lg">
@@ -31,12 +37,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ open, onClose }) => (
             <NavigationLinks />
           </div>
           <div className="py-6">
-            <a
-              href="#"
-              className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-colors duration-300"
-            >
-              Log in
-            </a>
+            <Button variant="link" onClick={makeLogout}>
+              Sair
+            </Button>
           </div>
         </div>
       </div>

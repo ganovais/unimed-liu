@@ -1,12 +1,23 @@
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
 import { Button } from "@/components/ui/button";
 import MobileMenuButton from "./MobileMenuButton";
 import NavigationLinks from "./NavigationLinks";
 import MobileMenu from "./MobileMenu";
+import { api } from "@/lib/api";
 
 export default function Header() {
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  async function handleMakeLogout()  {
+    const { data } = await api.post('/logout')
+    if(!data?.error) router.push('/')
+    toast.error('Erro ao fazer logout')  
+  }
 
   return (
     <header className="bg-white shadow-md">
@@ -27,17 +38,20 @@ export default function Header() {
           <NavigationLinks />
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button variant="default" size="default">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+          <Button
+            variant="default"
+            size="default"
+            onClick={handleMakeLogout}
+            className="text-sm font-semibold leading-6 text-white"
+          >
+            Sair <span aria-hidden="true">&rarr;</span>
           </Button>
         </div>
         <div className="flex lg:hidden">
           <MobileMenuButton onClick={() => setMobileMenuOpen(true)} />
         </div>
       </nav>
-      <MobileMenu open={mobileMenuOpen} onClose={setMobileMenuOpen} />
+      <MobileMenu open={mobileMenuOpen} onClose={setMobileMenuOpen} makeLogout={handleMakeLogout}/>
     </header>
   );
 }

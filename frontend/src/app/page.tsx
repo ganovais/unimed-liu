@@ -14,7 +14,6 @@ import UnimedLogo from "../assets/logo.png";
 
 const loginFormSchema = z.object({
   email: z.string().email({ message: "Informe um e-mail válido" }),
-  sector: z.string(),
   password: z
     .string()
     .min(8, { message: "Sua senha deve ter pelo menos 8 caracteres" }),
@@ -34,7 +33,6 @@ export default function Login() {
   });
 
   async function onSubmit(formData: LoginData) {
-    localStorage.setItem("sector", formData.sector);
     const response = await fetch("/api/login", {
       method: "POST",
       body: JSON.stringify(formData),
@@ -89,16 +87,7 @@ export default function Login() {
           />
         </div>
 
-        <div className="grid items-center gap-1.5">
-          <Label htmlFor="email">Setor</Label>
-          <select {...register('sector')}>
-            <option value="nursing">Enfermagem</option>
-            <option value="nutrition">Nutrição</option>
-            <option value="hospitality">Hotelaria</option>
-          </select>
-        </div>
-
-        <Button type="submit">Entrar</Button>
+        <Button className="mt-3" type="submit">Entrar</Button>
       </form>
     </div>
   );

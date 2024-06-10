@@ -3,18 +3,17 @@
 import { useQuery } from "@tanstack/react-query";
 
 import AppointmentCard from "@/components/sistema/AppointmentCard";
-import { mockResponseAppointments } from "@/mock-response-appointments";
+import { api } from "@/lib/api";
 
 export default function System() {
-  const sector = localStorage.getItem("sector");
   const { data, isFetching } = useQuery({
-    queryKey: ["appointments", sector],
+    queryKey: ["appointments"],
     queryFn: async () => {
-      // const response = await api.get(`/appointments/${sector}`);
-      // return response.data;
-
-      return mockResponseAppointments;
+      const response = await api.get(`/appointments`);
+      return response.data;
     },
+    retry: 3,
+    retryDelay: 1000
   });
 
   if (isFetching) return <p>Carregando...</p>;
@@ -22,7 +21,7 @@ export default function System() {
   return (
     <div className="grid grid-cols-12 gap-3">
       {data && data.length > 0 ? (
-        data.map((appointment) => (
+        data.map((appointment: any) => (
           <AppointmentCard key={appointment.id} appointment={appointment} />
         ))
       ) : (

@@ -19,9 +19,18 @@ export class AppointmentService {
   }
 
   async getBySector(sector: string) {
+    const where = {
+      closedAt: null,
+      deletedAt: null,
+    };
+
+    if (sector !== 'unir') {
+      where['category'] = sector;
+    }
+
     return this.prisma.appointment.findMany({
       include: { patient: true },
-      where: { closedAt: null, deletedAt: null, category: sector },
+      where,
     });
   }
 
