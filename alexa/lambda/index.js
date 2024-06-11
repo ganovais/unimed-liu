@@ -3,7 +3,7 @@ const { get } = require("lodash");
 const axios = require("axios");
 
 const api = axios.create({
-  baseURL: "https://45fe-2001-1284-f01c-4e57-31a5-7da2-9766-2105.ngrok-free.app",
+  baseURL: "http://3.136.23.116:3301",
 });
 
 const LaunchRequestHandler = {
@@ -122,8 +122,8 @@ const NursingOptionsIntentHandler = {
     const id = obtainId(option)
     const serviceName = obtainServiceName(option)
     
-    if(option.value === 'repetir') {
-      const repeatMessage = 'Claro, medicamento atrasado, trocar o soro, estou com dor, tomar banho,  ir ao banheiro, trocar a fralda, outros ou repetir.'
+    if(id === 19) {
+      const repeatMessage = id + 'Claro, medicamento atrasado, trocar o soro, estou com dor, tomar banho,  ir ao banheiro, trocar a fralda, outros ou repetir enfermagem.'
       return handlerInput.responseBuilder
         .speak(repeatMessage)
         .reprompt(repeatMessage)
@@ -168,8 +168,8 @@ const HospitalityOptionsIntentHandler = {
     const id = obtainId(option)
     const serviceName = obtainServiceName(option)
     
-    if(option.value === 'repetir') {
-      const repeatMessage = 'Claro, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir.';
+    if(id === 18) {
+      const repeatMessage = 'Claro, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir hotelaria.';
       return handlerInput.responseBuilder
         .speak(repeatMessage)
         .reprompt(repeatMessage)
@@ -214,8 +214,8 @@ const NutritionOptionsIntentHandler = {
     const id = obtainId(option)
     const serviceName = obtainServiceName(option)
     
-    if(option.value === 'repetir') {
-      const repeatMessage = 'Claro, pedido de almoço, pedido de jantar, trazer água, retirar a louça, falar com a nutricionista, outros ou repetir.';
+    if(id === 20) {
+      const repeatMessage = 'Claro, pedido de almoço, pedido de jantar, trazer água, retirar a louça, falar com a nutricionista, outros ou repetir nutrição.';
       return handlerInput.responseBuilder
         .speak(repeatMessage)
         .reprompt(repeatMessage)

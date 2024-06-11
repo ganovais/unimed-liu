@@ -15,7 +15,10 @@ export default function Header() {
 
   async function handleMakeLogout()  {
     const { data } = await api.post('/logout')
-    if(!data?.error) router.push('/')
+    if(!data?.error) {
+      router.push('/')
+      return
+    }
     toast.error('Erro ao fazer logout')  
   }
 

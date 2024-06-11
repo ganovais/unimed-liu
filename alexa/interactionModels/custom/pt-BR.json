@@ -270,12 +270,11 @@
             {
               "name": {
                 "synonyms": [
-                  "repetir",
-                  "de novo"
+                  "de novo enfermagem"
                 ],
-                "value": "repetir"
+                "value": "repetir enfermagem"
               },
-              "id": "99"
+              "id": "19"
             },
             {
               "name": {
@@ -359,12 +358,11 @@
             {
               "name": {
                 "synonyms": [
-                  "de novo",
-                  "repetir"
+                  "de novo nutrição"
                 ],
-                "value": "repetir"
+                "value": "repetir nutrição"
               },
-              "id": "99"
+              "id": "20"
             },
             {
               "name": {
@@ -438,12 +436,11 @@
             {
               "name": {
                 "synonyms": [
-                  "de novo",
-                  "repetir"
+                  "de novo hotelaria"
                 ],
-                "value": "repetir"
+                "value": "repetir hotelaria"
               },
-              "id": "99"
+              "id": "18"
             },
             {
               "name": {
@@ -595,7 +592,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Por favor, escolha uma das opções, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir."
+            "value": "Por favor, escolha uma das opções, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir hotelaria."
           }
         ],
         "id": "Elicit.Slot.982986332945.750528494414"
@@ -604,7 +601,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Por favor, escolha uma das opções, medicamento atrasado, trocar o soro, estou com dor, tomar banho,  ir ao banheiro, trocar a fralda, outros ou repetir."
+            "value": "Por favor, escolha uma das opções, medicamento atrasado, trocar o soro, estou com dor, tomar banho,  ir ao banheiro, trocar a fralda, outros ou repetir enfermagem."
           }
         ],
         "id": "Elicit.Slot.1611126811452.1609730251913"
@@ -613,7 +610,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Por favor, escolha uma das opções, pedido de almoço, pedido de jantar, trazer água, retirar a louça, falar com a nutricionista, outros ou repetir."
+            "value": "Por favor, escolha uma das opções, pedido de almoço, pedido de jantar, trazer água, retirar a louça, falar com a nutricionista, outros ou repetir nutrição."
           }
         ],
         "id": "Elicit.Slot.1561222920839.1398222194649"
