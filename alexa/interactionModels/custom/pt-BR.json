@@ -240,7 +240,12 @@
           "values": [
             {
               "name": {
-                "value": "Hotelaria"
+                "synonyms": [
+                  "serviço de quarto",
+                  "servico de quarto",
+                  "quarto"
+                ],
+                "value": "Serviço de quarto"
               }
             },
             {
@@ -436,9 +441,12 @@
             {
               "name": {
                 "synonyms": [
-                  "de novo hotelaria"
+                  "repetir serviço de 4. º",
+                  "repetir serviço de 4.º",
+                  "repetir quarto",
+                  "repetir serviço de quarto"
                 ],
-                "value": "repetir hotelaria"
+                "value": "repetir serviço de quarto"
               },
               "id": "18"
             },
@@ -525,7 +533,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Por favor, escolha entre enfermagem, nutrição ou hotelaria"
+            "value": "Por favor, escolha entre enfermagem, nutrição ou serviço de quarto"
           }
         ],
         "id": "Elicit.Slot.126153955843.1223477767840"
@@ -534,11 +542,11 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Escolha entre Enfermagem, Nutrição ou Hotelaria"
+            "value": "Escolha entre Enfermagem, Nutrição ou Serviço de quarto"
           },
           {
             "type": "PlainText",
-            "value": "Opção inválida, escolha  entre Enfermagem, Nutrição ou Hotelaria"
+            "value": "Opção inválida, escolha  entre Enfermagem, Nutrição ou Serviço de quarto"
           }
         ],
         "id": "Slot.Validation.126153955843.1223477767840.1565610631320"
@@ -592,7 +600,7 @@
         "variations": [
           {
             "type": "PlainText",
-            "value": "Por favor, escolha uma das opções, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir hotelaria."
+            "value": "Por favor, escolha uma das opções, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir serviço de quarto"
           }
         ],
         "id": "Elicit.Slot.982986332945.750528494414"

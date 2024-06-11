@@ -82,19 +82,15 @@ const MenuOptionsIntentHandler = {
     let speechText = `Você escolheu ${category}. `;
 
     let subMenuName = "";
-    switch (category) {
-      case "enfermagem":
-        subMenuName = "NursingOptionsIntent";
-        break;
-      case "nutrição":
-        subMenuName = "NutritionOptionsIntent";
-        break;
-      case "hotelaria":
-        subMenuName = "HospitalityOptionsIntent";
-        break;
-      default:
-        break;
-    }
+    const categoryLowerCase = category.toLowerCase();
+    if(categoryLowerCase === "enfermagem") {
+      subMenuName = "NursingOptionsIntent";
+    } else if(categoryLowerCase === "nutrição") {
+      subMenuName = "NutritionOptionsIntent";
+    } else if(categoryLowerCase.includes('quarto') || categoryLowerCase.includes('4')) {
+      subMenuName = "HospitalityOptionsIntent";
+    } 
+
     return handlerInput.responseBuilder
       .speak(speechText)
       .addDelegateDirective({
@@ -169,7 +165,7 @@ const HospitalityOptionsIntentHandler = {
     const serviceName = obtainServiceName(option)
     
     if(id === 18) {
-      const repeatMessage = 'Claro, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir hotelaria.';
+      const repeatMessage = 'Claro, limpeza do quarto ou banheiro, retirar lixo, trocar lençol, mais cobertor, problema na televisão, problema no ar condicionado, outros ou repetir serviço de quarto.';
       return handlerInput.responseBuilder
         .speak(repeatMessage)
         .reprompt(repeatMessage)

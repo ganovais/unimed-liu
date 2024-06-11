@@ -12,6 +12,7 @@ export default function System() {
       const response = await api.get(`/appointments`);
       return response.data;
     },
+    refetchInterval: 10000,
     retry: 3,
     retryDelay: 1000
   });
