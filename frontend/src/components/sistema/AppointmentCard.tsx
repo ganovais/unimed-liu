@@ -78,9 +78,9 @@ export default function AppointmentCard({ appointment }: { appointment: any }) {
         <ModalContainer>
           <ModalContent>
             <ModalHeader>
-              <ModalText>Confirmação de Exclusão</ModalText>
+              <ModalText>Confirmação</ModalText>
             </ModalHeader>
-            <Label>Deseja realmente excluir este item?</Label>
+            <Label>Deseja realmente finalizar este item?</Label>
             <div className="flex justify-end mt-6">
               <ModalButton onClick={closeModal}>Cancelar</ModalButton>
               <ModalButton onClick={handleFinishAppointment} className="ml-4">

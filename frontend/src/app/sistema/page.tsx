@@ -6,7 +6,7 @@ import AppointmentCard from "@/components/sistema/AppointmentCard";
 import { api } from "@/lib/api";
 
 export default function System() {
-  const { data, isFetching } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["appointments"],
     queryFn: async () => {
       const response = await api.get(`/appointments`);
@@ -14,20 +14,18 @@ export default function System() {
     },
     refetchInterval: 10000,
     retry: 3,
-    retryDelay: 1000
+    retryDelay: 1000,
   });
 
-  if (isFetching) return <p>Carregando...</p>;
+  if (isLoading) return <p>Carregando...</p>;
 
-  return (
+  return data && data.length > 0 ? (
     <div className="grid grid-cols-12 gap-3">
-      {data && data.length > 0 ? (
-        data.map((appointment: any) => (
-          <AppointmentCard key={appointment.id} appointment={appointment} />
-        ))
-      ) : (
-        <p>Nenhum atendimento encontrado</p>
-      )}
+      {data.map((appointment: any) => (
+        <AppointmentCard key={appointment.id} appointment={appointment} />
+      ))}
     </div>
+  ) : (
+    <p className="w-full text-lg font-bold">Nenhum atendimento encontrado</p>
   );
 }
