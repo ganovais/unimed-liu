@@ -13,10 +13,6 @@ const LaunchRequestHandler = {
     );
   },
   handle(handlerInput) {
-    const currentTime = new Date();
-    const saoPauloTime = currentTime.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo" });
-    const hour = parseInt(saoPauloTime.split(':')[0]);
-    
     const speakOutput = "Olá, eu sou o LIU, seu assistente inteligente.";
 
     return handlerInput.responseBuilder
@@ -119,7 +115,7 @@ const NursingOptionsIntentHandler = {
     const serviceName = obtainServiceName(option)
     
     if(id === 19) {
-      const repeatMessage = id + 'Claro, medicamento atrasado, trocar o soro, estou com dor, tomar banho,  ir ao banheiro, trocar a fralda, outros ou repetir enfermagem.'
+      const repeatMessage = 'Claro, medicamento atrasado, trocar o soro, estou com dor, tomar banho,  ir ao banheiro, trocar a fralda, outros ou repetir enfermagem.'
       return handlerInput.responseBuilder
         .speak(repeatMessage)
         .reprompt(repeatMessage)
